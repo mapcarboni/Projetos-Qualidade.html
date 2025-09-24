@@ -1,0 +1,391 @@
+body {
+    font-family: Times, serif;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    margin: 0;
+    padding: 20px;
+    animation: rainbow 3s infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background: #ff0000;
+    }
+
+    33% {
+        background: #00ff00;
+    }
+
+    66% {
+        background: #0000ff;
+    }
+
+    100% {
+        background: #ff0000;
+    }
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 12px;
+    border: 3px dashed #ff00ff;
+    background: rgba(255, 255, 255, 0.8);
+    transform: rotate(-2deg);
+}
+
+.title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #000;
+    color: red;
+    text-align: center;
+}
+
+.step {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 6px 10px;
+    background: #ddd;
+    border: 1px solid #333;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
+
+.btn:hover {
+    transform: scale(0.8);
+}
+
+.btn:focus {
+    outline: 3px solid red;
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    background: #ffffcc;
+    border: 2px solid transparent;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #ff0000;
+    background: #ffcccc;
+    outline: none;
+}
+
+input[type="password"] {
+    font-family: "Wingdings";
+}
+
+#errors {
+    font-size: 11px;
+    color: red;
+    opacity: 0.7;
+    background: yellow;
+    padding: 10px;
+    border: 2px solid red;
+    margin-top: 10px;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.final-note {
+    font-size: 8px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #f0f0f0;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, red, yellow, green);
+    width: 0%;
+    transition: width 2s ease;
+}
+
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 9999;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 500px;
+    min-width: 350px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 3px solid #ff6600;
+    animation: modalSlideIn 0.4s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.modal-close {
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.modal-close:hover {
+    background: #ff3742;
+    transform: rotate(90deg);
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
+}
+
+.modal-close:active {
+    transform: rotate(90deg) scale(0.9);
+}
+
+.modal-body {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.modal-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.modal-btn.primary {
+    background: #dc3545;
+    color: white;
+}
+
+.modal-btn.primary:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+.modal-btn.secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.modal-btn.secondary:hover {
+    background: #545b62;
+    transform: translateY(-2px);
+}
+
+.modal-btn.danger {
+    background: #00ff20;
+    color: white;
+}
+
+.modal-btn.danger:hover {
+    background: #00ff10;
+    transform: translateY(-2px);
+}
+
+.modal-btn.close-btn {
+    background: #00ff00;
+    color: white;
+}
+
+.modal-btn.close-btn:hover {
+    background: #00ff05;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .actions {
+        flex-direction: row;
+    }
+
+    input {
+        font-size: 6px;
+        width: 150%;
+    }
+
+    .container {
+        width: 120%;
+    }
+
+    .modal-content {
+        margin: 20px;
+        min-width: auto;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
+}
+
+label {
+    color: #ccc;
+    font-size: 10px;
+    cursor: not-allowed;
+    display: block;
+    margin: 8px 0;
+}
+
+.tooltip {
+    position: absolute;
+    background: black;
+    color: white;
+    padding: 8px 12px;
+    font-size: 18px;
+    z-index: 1000;
+    display: none;
+    pointer-events: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.section-title {
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
