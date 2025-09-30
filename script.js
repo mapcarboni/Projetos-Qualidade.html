@@ -1,5 +1,5 @@
-const NOME_ALUNO_SENHA_EXISTENTE = "BOHEN";
-//     const NOME_ALUNO_SENHA_EXISTENTE = "CAUÃ";
+// const NOME_ALUNO_SENHA_EXISTENTE = "BOHEN";
+const NOME_ALUNO_SENHA_EXISTENTE = "CAUÃ";
 
 let currentModalResolve = null;
 
